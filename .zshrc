@@ -130,4 +130,3 @@ ssh-add ~/.ssh/id_rsa &> /dev/null
 export JIRA_URL=https://triptease.atlassian.net
 export PATH=/usr/local/sbin:~/bin:~/Applications/google-cloud-sdk/bin:$PATH
 
-cd ~/triptease

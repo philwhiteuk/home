@@ -17,6 +17,7 @@ map <C-n> :NERDTreeTabsToggle<CR>
 "PLUGINS
 "
 call plug#begin('~/.vim/plugged')
+  Plug 'airblade/vim-gitgutter'
   Plug 'a-nikolaev/vim-boltzmann'
 	Plug 'gcmt/taboo.vim'
 	Plug 'jistr/vim-nerdtree-tabs'
@@ -25,7 +26,27 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-sensible'
 	Plug 'vim-javascript'
 	Plug 'vim-airline/vim-airline'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
+
+"NERDTree
+let NERDTreeMinimalUI=1
+let NERDTreeWinPos='right'
+exec 'autocmd filetype nerdtree syntax match hideBracketsInNerdTree "[\]|\[]*" contained conceal cchar=_ containedin=ALL'
+exec 'autocmd filetype nerdtree set conceallevel=3'
+exec 'autocmd filetype nerdtree set concealcursor=nvic'
+let g:NERDTreeIndicatorMapCustom= {
+    \ "Modified"  : "*",
+    \ "Staged"    : "+",
+    \ "Untracked" : "u",
+    \ "Renamed"   : "*",
+    \ "Unmerged"  : "",
+    \ "Deleted"   : "!",
+    \ "Dirty"     : "*",
+    \ "Clean"     : "",
+    \ 'Ignored'   : "",
+    \ "Unknown"   : "?"
+    \ }
 
 "Taboo
 set sessionoptions+=tabpages,globals
@@ -39,12 +60,14 @@ function! OpenProject(pd)
   tab sp
   tabonly
   NERDTreeTabsOpen
+  exec 'NERDTree ' . a:pd 
 endfunction
 
 let projectList=[]
 let projectDirs=split(globpath('~/triptease,~/Documents/scripts', '*'), '\n')
 for d in projectDirs
-  let projectList=projectList + [[ split(d,"/")[-1], 'call OpenProject("'.d.'")']]
+  let dArr=split(d,"/")
+  let projectList=projectList + [[ dArr[-2] . '-' . dArr[-1], 'call OpenProject("'.d.'")']]
 endfor
 
 let g:startify_custom_header=[]
