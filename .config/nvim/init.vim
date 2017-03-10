@@ -12,6 +12,7 @@ autocmd BufEnter * if expand('%:t') == "Jenkinsfile" | setlocal ft=groovy | endi
 
 "custom key mappings
 map <C-n> :NERDTreeTabsToggle<CR>
+map <C-p> :Startify<CR>
 
 "
 "PLUGINS
@@ -20,9 +21,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'a-nikolaev/vim-boltzmann'
 	Plug 'gcmt/taboo.vim'
+  Plug 'isruslan/vim-es6'
+  Plug 'jelera/vim-javascript-syntax'
 	Plug 'jistr/vim-nerdtree-tabs'
 	Plug 'mhinz/vim-startify'
+  Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'pearofducks/ansible-vim'
 	Plug 'scrooloose/nerdtree'
+	Plug 'scrooloose/syntastic'
 	Plug 'tpope/vim-sensible'
 	Plug 'vim-javascript'
 	Plug 'vim-airline/vim-airline'
@@ -32,13 +38,13 @@ call plug#end()
 "NERDTree
 let NERDTreeMinimalUI=1
 let NERDTreeWinPos='right'
-exec 'autocmd filetype nerdtree syntax match hideBracketsInNerdTree "[\]|\[]*" contained conceal cchar=_ containedin=ALL'
+exec 'autocmd filetype nerdtree syntax match hideBracketsInNerdTree "[\]|\[]*" contained conceal containedin=ALL'
 exec 'autocmd filetype nerdtree set conceallevel=3'
 exec 'autocmd filetype nerdtree set concealcursor=nvic'
 let g:NERDTreeIndicatorMapCustom= {
     \ "Modified"  : "*",
     \ "Staged"    : "+",
-    \ "Untracked" : "u",
+    \ "Untracked" : "~",
     \ "Renamed"   : "*",
     \ "Unmerged"  : "",
     \ "Deleted"   : "!",
@@ -64,13 +70,31 @@ function! OpenProject(pd)
 endfunction
 
 let projectList=[]
-let projectDirs=split(globpath('~/triptease,~/Documents/scripts', '*'), '\n')
+let projectDirs=split(globpath('~/triptease', '*'), '\n')
 for d in projectDirs
   let dArr=split(d,"/")
-  let projectList=projectList + [[ dArr[-2] . '-' . dArr[-1], 'call OpenProject("'.d.'")']]
+  let projectList=projectList + [[ dArr[-1], 'call OpenProject("'.d.'")']]
 endfor
 
 let g:startify_custom_header=[]
 let g:startify_list_order=['commands']
 let g:startify_commands=projectList
+
+"Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list= 1
+let g:syntastic_auto_loc_list= 1
+let g:syntastic_check_on_open= 1
+let g:syntastic_check_on_wq= 1
+
+let g:syntastic_ansible_checkers= ['ansible-lint']
+let g:syntastic_css_checkers= ['csslint']
+let g:syntastic_dockerfile_checkers= ['dockerfile-lint']
+let g:syntastic_html_checkers= ['eslint']
+let g:syntastic_javascript_checkers= ['eslint']
+let g:syntastic_json_checkers= ['jsonlint']
+let g:syntastic_yaml_checkers= ['yamllint']
 

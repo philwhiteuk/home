@@ -3,6 +3,7 @@
 !/bin/
 !/.config/
 /.config/gcloud
+!.eslintrc.json
 !.gitignore
 !/.ssh/config
 !.vimrc
