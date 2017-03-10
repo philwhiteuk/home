@@ -1,0 +1,19 @@
+#!/bin/bash
+# script for port forwarding rabbitmq console to local port on 8080
+
+REMOTE_HOST=$1
+LOCAL_SSH_IDENTITY=~/.ssh/id_rsa
+LOCAL_USER=$(whoami)
+
+if [[ -n $REMOTE_HOST ]]; then
+	
+	# kill old ssh processes listening on port 8080
+	for PID in $(lsof -t -i :8080 -ac ssh); do
+		kill $PID
+	done
+
+	ssh -fNL 8080:127.0.0.1:15672 -i $LOCAL_SSH_IDENTITY ${LOCAL_USER}@$REMOTE_HOST
+	open http://localhost:8080
+else
+	echo 'Must supply host to connect to'
+fi
