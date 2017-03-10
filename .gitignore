@@ -4,4 +4,5 @@
 !/.config/
 /.config/gcloud
 !.gitignore
+!/.ssh/config
 !.zshrc
