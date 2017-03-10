@@ -109,13 +109,15 @@ function drmid {
   done
 }
 
-alias rabbit="~/bin/load-rabbit-console"
-alias nuke="nuke"
-alias ll="ls -la"
-alias vdup="vagrant destroy -f $1 && vagrant up $1"
 alias dockup='docker-machine start dev && eval "$(docker-machine env dev)" && docker-machine ip dev'
 alias gpr="gpr"
+alias ll="ls -la"
+alias nuke="nuke"
 alias nvminit="nvmload"
+alias rabbit="~/bin/load-rabbit-console"
+alias vdup="vagrant destroy -f $1 && vagrant up $1"
+# map vim to nvim because it is better
+alias vim="nvim"
 
 #
 # 2. Other Stuff + Shortcuts

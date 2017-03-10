@@ -5,4 +5,5 @@
 /.config/gcloud
 !.gitignore
 !/.ssh/config
+!.vimrc
 !.zshrc

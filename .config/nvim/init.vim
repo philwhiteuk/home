@@ -1,26 +1,11 @@
 "
 "SETTINGS
 "
+so ~/.vimrc
 
 "presentation
-set number
-set syntax
-set ruler
-set colorcolumn=160
+set syntax=on
 set termguicolors
-
-"standards
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smarttab
-
-"annoyances
-set noerrorbells
-set novisualbell
-
-"use shell aliases
-set shellcmdflag=-ic
 
 "custom file types
 autocmd BufEnter * if expand('%:t') == "Jenkinsfile" | setlocal ft=groovy | endif
