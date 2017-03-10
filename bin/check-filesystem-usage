@@ -1,0 +1,18 @@
+#!/bin/bash
+# reports disk usage summary on remote host
+
+HOST=${1}
+DIR=${2}
+
+if [ -n "${HOST}" ]; then
+
+  if [ -z ${DIR} ]; then
+    DIR='/'
+  fi
+
+  echo "sudo du -x   -d1 -h ${DIR}"
+  ssh ${HOST} sudo du -x   -d1 -h ${DIR}
+
+else
+  echo "No host argument supplied"
+fi
