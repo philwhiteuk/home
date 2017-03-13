@@ -13,8 +13,5 @@ set smarttab
 set noerrorbells
 set novisualbell
 
-"use shell aliases
-set shellcmdflag=-ic
-
 "custom key mappings
 nmap ; :
