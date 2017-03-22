@@ -15,3 +15,6 @@ set novisualbell
 
 "custom key mappings
 nmap ; :
+
+"refresh buffer on file change
+set autoread
