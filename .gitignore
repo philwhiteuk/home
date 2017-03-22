@@ -3,6 +3,7 @@
 !/bin/
 !/.config/
 /.config/gcloud
+/.config/configstore
 !.eslintrc.json
 !.gitignore
 !/.ssh/config
