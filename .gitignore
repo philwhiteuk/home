@@ -1,6 +1,7 @@
 /*
 /*/
 !/bin/
+/bin/nroff
 !/.config/
 /.config/gcloud
 /.config/configstore

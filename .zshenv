@@ -50,5 +50,6 @@ alias rabbit="~/bin/load-rabbit-console"
 alias vdup="vagrant destroy -f $1 && vagrant up $1"
 # map vim to nvim because it is better
 alias vim="nvim"
+alias cat="colorize"
 
 path+=/bin/zsh

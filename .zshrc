@@ -51,7 +51,7 @@ ZSH_THEME="cordial"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws brew colored-man colorize docker git jira npm osx pip python sublime vagrant web-search zsh-syntax-highlighting)
+plugins=(colored-man-pages colorize git npm zsh-syntax-highlighting zsh-autosuggestions)
 
 # User configuration
 
