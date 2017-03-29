@@ -38,6 +38,8 @@ call plug#end()
 "NERDTree
 let NERDTreeMinimalUI=1
 let NERDTreeWinPos='right'
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['.DS_Store','.git$','\.pyc$']
 exec 'autocmd filetype nerdtree syntax match hideBracketsInNerdTree "[\]|\[]*" contained conceal containedin=ALL'
 exec 'autocmd filetype nerdtree set conceallevel=3'
 exec 'autocmd filetype nerdtree set concealcursor=nvic'
