@@ -4,6 +4,7 @@ set ruler
 set colorcolumn=160
 
 "standards
+set autoindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
