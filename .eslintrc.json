@@ -1,6 +1,7 @@
 {
     "env": {
         "browser": true,
+        "mocha": true,
         "node": true,
         "es6": true
     },
@@ -9,9 +10,6 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-console": [
-            "warn"
-        ],
         "indent": [
             "error",
             2
@@ -20,9 +18,23 @@
             "error",
             "unix"
         ],
-        "quotes": [
-            "error",
-            "single"
-        ]
+        "comma-dangle": 1,
+        "quotes": [2, "single"],
+        "no-undef": 2,
+        "global-strict": 0,
+        "no-extra-semi": 2,
+        "no-underscore-dangle": 0,
+        "no-console": 1,
+        "no-unused-vars": 2,
+        "no-trailing-spaces": [2, { "skipBlankLines": true }],
+        "no-unreachable": 2,
+        "no-alert": 2,
+        "no-empty": 2,
+        "no-warning-comments": [1, { "terms": ["todo", "fixme"], "location": "anywhere" }],
+        "generator-star-spacing": [2,  {"before": false, "after": true}],
+        "object-curly-spacing": [2, "always"],
+        "dot-notation": 2,
+        "valid-typeof": 2,
+        "arrow-parens": [2, "always"]
     }
 }
