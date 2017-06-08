@@ -90,3 +90,9 @@ ssh-add ~/.ssh/id_rsa &> /dev/null
 export JIRA_URL=https://triptease.atlassian.net
 export PATH=/usr/local/sbin:~/bin:~/Applications/google-cloud-sdk/bin:$PATH
 
+
+# added by travis gem
+[ -f /Users/phil/.travis/travis.sh ] && source /Users/phil/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
