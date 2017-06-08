@@ -4,11 +4,10 @@ set ruler
 set colorcolumn=160
 
 "standards
-set autoindent
+filetype indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set smarttab
 
 "annoyances
 set noerrorbells
@@ -23,6 +22,7 @@ set autoread
 "yank to clipboard
 set clipboard=unnamed
 
-"normal copy/paste
-vmap <C-c> y<Esc>i
-vmap <C-x> d<Esc>i
+"highlight tabs
+"highlight SpecialKey ctermfg=1
+"set list
+"set listchars=tab:T>
