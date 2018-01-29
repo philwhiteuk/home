@@ -30,10 +30,8 @@ function gpr {
   open $pull_request_uri
 }
 
-function nvmload {
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 function drmid {
   for image in $(docker images -qf dangling=true); do
@@ -51,5 +49,18 @@ alias vdup="vagrant destroy -f $1 && vagrant up $1"
 # map vim to nvim because it is better
 alias vim="nvim"
 alias cat="colorize"
+
+# Kubernetes aliases
+ksns(){
+  if kubectl get "ns/${1}" &>/dev/null; then
+    kubectl config set-context\
+      $(kubectl config current-context)\
+      --namespace="${1}" >/dev/null
+    echo "switched namespace context to: ${1}"
+  else
+    echo "namespace ${1} does not exist"
+  fi
+}
+alias ksns=ksns
 
 path+=/bin/zsh
