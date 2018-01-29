@@ -1,40 +1,37 @@
 {
-    "env": {
-        "browser": true,
-        "mocha": true,
-        "node": true,
-        "es6": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "sourceType": "module"
-    },
-    "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "comma-dangle": 1,
-        "quotes": [2, "single"],
-        "no-undef": 2,
-        "global-strict": 0,
-        "no-extra-semi": 2,
-        "no-underscore-dangle": 0,
-        "no-console": 1,
-        "no-unused-vars": 2,
-        "no-trailing-spaces": [2, { "skipBlankLines": true }],
-        "no-unreachable": 2,
-        "no-alert": 2,
-        "no-empty": 2,
-        "no-warning-comments": [1, { "terms": ["todo", "fixme"], "location": "anywhere" }],
-        "generator-star-spacing": [2,  {"before": false, "after": true}],
-        "object-curly-spacing": [2, "always"],
-        "dot-notation": 2,
-        "valid-typeof": 2,
-        "arrow-parens": [2, "always"]
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["react", "import"],
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
     }
+  },
+  "env": {
+    "amd": true,
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "commonjs": true,
+    "mocha": true,
+    "jest": true
+  },
+  "rules": {
+    "no-var": ["error"],
+    "no-constant-condition": ["error", { "checkLoops": false }],
+    "import/default": [0]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {}
+    }
+  }
 }
