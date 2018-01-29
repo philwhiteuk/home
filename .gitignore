@@ -2,6 +2,7 @@
 /*/
 !/bin/
 /bin/nroff
+/bin/terraform-provider-runscope
 !/.config/
 /.config/gcloud
 /.config/configstore
